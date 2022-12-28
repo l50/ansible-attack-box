@@ -1,0 +1,38 @@
+---
+name: Molecule Test
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: "cowdogmoo.attack-box"
+
+jobs:
+  molecule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: "cowdogmoo.attack-box"
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip3 install ansible molecule[docker] docker yamllint ansible-lint
+
+      - name: Install galaxy dependencies
+        run: ansible-galaxy install -r requirements.yaml
+
+      - name: Run molecule tests
+        run: molecule test
+        env:
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
+          MOLECULE_DISTRO: "kalilinux/kali-rolling:latest"

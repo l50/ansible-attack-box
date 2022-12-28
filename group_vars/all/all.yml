@@ -1,0 +1,11 @@
+install_packages:
+  - code-oss # vscode
+  - curl
+  - git
+  - jq
+
+pip_packages:
+  - ansible
+  - keepercommander
+  - molecule
+  - molecule[docker,lint]

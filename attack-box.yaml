@@ -1,0 +1,45 @@
+---
+- name: Attack Box
+  hosts: all
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  roles:
+    - role: cowdogmoo.vnc_zsh
+      become: true
+      vnc_users:
+        - username: "kali"
+          usergroup: "kali"
+          sudo: true
+          # port 5901
+          vnc_num: 1
+    - role: l50.sliver
+      become: true
+
+  tasks:
+    - name: Install packages
+      become: true
+      ansible.builtin.apt:
+        name: "{{ install_packages }}"
+        state: present
+        update_cache: true
+      when: ansible_distribution_release == "kali-rolling"
+
+    - name: Install pip packages
+      ansible.builtin.pip:
+        name: "{{ item }}"
+        state: present
+      when: ansible_distribution_release == "kali-rolling"
+      loop: "{{ pip_packages }}"
+
+    - name: Add MSF tools to PATH
+      become: true
+      ansible.builtin.lineinfile:
+        path: /etc/zsh/zshrc
+        line: export PATH=$PATH:/usr/share/metasploit-framework/tools/exploit
+      when: ansible_distribution_release == "kali-rolling"
+
+    - name: Clean up installation script
+      ansible.builtin.file:
+        path: /tmp/install.sh
+        state: absent
+      changed_when: false

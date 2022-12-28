@@ -1,0 +1,3 @@
+---
+- name: Run the Attack Box Playbook
+  ansible.builtin.import_playbook: ../../attack-box.yaml

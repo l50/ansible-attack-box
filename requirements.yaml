@@ -1,0 +1,6 @@
+roles:
+  - name: l50.sliver
+  - name: cowdogmoo.vnc_zsh
+
+collections:
+  - name: community.general
