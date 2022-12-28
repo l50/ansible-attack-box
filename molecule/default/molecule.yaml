@@ -1,0 +1,39 @@
+---
+driver:
+  name: docker
+
+# Use Ansible Galaxy to install dependencies
+dependency:
+  name: galaxy
+  options:
+    # Install required galaxy roles
+    role-file: ../../requirements.yml
+    # Install required collections
+    requirements-file: ../../requirements.yml
+
+platforms:
+  - name: centos-PLAYBOOK_NAME
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+
+  - name: ubuntu-PLAYBOOK_NAME
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+
+  - name: debian-PLAYBOOK_NAME
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}

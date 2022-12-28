@@ -1,0 +1,10 @@
+install_packages:
+  - curl
+
+pip_packages:
+  - ansible
+  - docker
+  - docker-compose
+  - keepercommander
+  - molecule
+  - molecule[docker,lint]

@@ -1,0 +1,43 @@
+# PLAYBOOK_NAME
+
+This playbook does TODO.
+
+---
+
+## Setup and execution
+
+1. Install dependencies:
+
+   ```bash
+   sudo apt install -y python3-pip libssl-dev
+   python3 -m pip install molecule ansible molecule[docker,lint]
+   ```
+
+1. Install galaxy roles and collections
+
+   ```bash
+   ansible-galaxy install -r requirements.yml
+   ```
+
+1. Run the playbook
+
+   ```bash
+   ansible-playbook \
+       --connection=local \
+       --inventory 127.0.0.1, \
+       --limit 127.0.0.1 PLAYBOOK_NAME.yaml
+   ```
+
+---
+
+## Testing
+
+To test changes made to this role, run the following commands:
+
+```bash
+molecule create
+molecule converge
+molecule idempotence
+# If everything passed, tear down the docker container spawned by molecule:
+molecule destroy
+```

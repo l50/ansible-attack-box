@@ -1,0 +1,6 @@
+roles:
+  - name: cowdogmoo.firefox
+
+collections:
+  - name: community.docker
+  - name: community.general

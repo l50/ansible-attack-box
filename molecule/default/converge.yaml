@@ -1,0 +1,37 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+
+    - name: Install dependencies (Debian-based distros)
+      ansible.builtin.apt:
+        name:
+          - git
+        state: present
+        update_cache: yes
+      when: (ansible_os_family == 'Debian')
+
+    - name: Update dnf cache
+      ansible.builtin.dnf:
+        update_cache: yes
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install dependencies (Red Hat-based distros)
+      ansible.builtin.dnf:
+        name:
+          - git
+        state: present
+        update_cache: yes
+      when: ansible_os_family == 'RedHat'
+
+  roles:
+    - name: cowdogmoo.firefox
+
+- import_playbook: ../../PLAYBOOK_NAME.yaml
