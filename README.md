@@ -1,8 +1,8 @@
 # Ansible Playbook: Attack Box
 
-[![Molecule Test](https://github.com/CowDogMoo/ansible-attack-box/actions/workflows/molecule.yaml/badge.svg)](https://github.com/CowDogMoo/ansible-attack-box/actions/workflows/molecule.yaml)
-[![Pre-Commit](https://github.com/CowDogMoo/ansible-attack-box/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/CowDogMoo/ansible-attack-box/actions/workflows/pre-commit.yaml)
-[![License](https://img.shields.io/github/license/CowDogMoo/ansible-attack-box?label=License&style=flat&color=blue&logo=github)](https://github.com/CowDogMoo/ansible-attack-box/blob/main/LICENSE)
+[![Molecule Test](https://github.com/l50/ansible-attack-box/actions/workflows/molecule.yaml/badge.svg)](https://github.com/l50/ansible-attack-box/actions/workflows/molecule.yaml)
+[![Pre-Commit](https://github.com/l50/ansible-attack-box/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/l50/ansible-attack-box/actions/workflows/pre-commit.yaml)
+[![License](https://img.shields.io/github/license/l50/ansible-attack-box?label=License&style=flat&color=blue&logo=github)](https://github.com/l50/ansible-attack-box/blob/main/LICENSE)
 
 This playbook provisions a system with various tools that are
 useful for offensive security work.
