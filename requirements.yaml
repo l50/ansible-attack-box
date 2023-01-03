@@ -1,6 +1,8 @@
+---
 roles:
   - name: l50.sliver
   - name: cowdogmoo.vnc_zsh
+  - name: cowdogmoo.firefox
 
 collections:
   - name: community.general

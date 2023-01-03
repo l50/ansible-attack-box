@@ -5,15 +5,8 @@
     DEBIAN_FRONTEND: noninteractive
   roles:
     - role: cowdogmoo.vnc_zsh
-      become: true
-      vnc_users:
-        - username: "kali"
-          usergroup: "kali"
-          sudo: true
-          # port 5901
-          vnc_num: 1
     - role: l50.sliver
-      become: true
+    - role: cowdogmoo.firefox
 
   tasks:
     - name: Install packages
