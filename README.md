@@ -4,6 +4,12 @@
 [![Pre-Commit](https://github.com/l50/ansible-attack-box/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/l50/ansible-attack-box/actions/workflows/pre-commit.yaml)
 [![License](https://img.shields.io/github/license/l50/ansible-attack-box?label=License&style=flat&color=blue&logo=github)](https://github.com/l50/ansible-attack-box/blob/main/LICENSE)
 
+## Deprecated
+
+This playbook functionality has been moved to https://github.com/CowDogMoo/ansible-collection-workstation/tree/main/playbooks/attack-box
+
+---
+
 This playbook provisions a system with various tools that are
 useful for offensive security work.
 
